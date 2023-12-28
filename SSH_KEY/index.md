@@ -63,4 +63,67 @@ cat .ssh/nome_da_key_ed25519.pub
 
 ---
 
-### Configurar acesso **SSH** de multiplas 
+### Configurar acesso **SSH** de multiplas contas Git
+
+- Deve ser criado um arquivo de configurações no diretório ```~/.ssh/```.
+
+- Digite o comando no terminal para criar no novo arquivo de configurações.
+
+```sh
+touch ~/.ssh/config
+```
+
+- Digite o comando no terminal para verificar se o arquivo foi criado com sucesso.
+
+```sh
+ls ~/.ssh/
+```
+
+- O arquivo deve ser editado e inserido as devidas configurações.
+
+- Digite o comando no terminal para editaqr o arquivo de configurações.
+
+```sh
+vim ~/.ssh/config
+```
+
+- Configure o arquivo  relacionando qual conta Git vai acessar com qual chave SSH.
+
+- inserir a linhas de configurações no arquivo de configurações.
+
+```md
+# Personal Account
+Host github.com-nome_de_usuario
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/nome_da_key_ed25519
+```
+
+- Salve o arquivo de configurações.
+
+1. Precione a tecla **ESC**
+2. Digite **:wq**
+3. Precione a tecla **ENTER**
+
+- Ao clonar um novo repositorio para a maquina local, deve ser alterado o host apenas.
+
+**Exemplo Atual:**
+
+```sh
+git@github.com:usuariogithub/personal-repository.git
+```
+
+**Exemplo Modificado:**
+
+```sh
+git@github.com-nome_de_usuario:usuariogithub/personal-repository.git
+```
+
+- Para repositórios já existentes basta reconfigurar com o comando git remote.
+
+- Digite o comando git remote -v, mais a origem do repositório.
+
+```sh
+git remote -v origin git@github.com-nome_de_usuario:usuariogithub/personal-repository.git
+
+```

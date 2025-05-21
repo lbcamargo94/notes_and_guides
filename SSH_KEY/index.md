@@ -37,7 +37,7 @@ ssh-keygen -t ed25519 -C "seu_email@email.com"
 - Digite o comando no terminal.
 
 ```sh
-ls .ssh/
+ls ~/.ssh/
 ```
 
 - Deve ser retornado os nomes dos arquivos criados.
